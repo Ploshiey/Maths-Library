@@ -1,0 +1,6 @@
+﻿  pch.cpp
+  mathsLib.cpp
+  matrix.cpp
+  vector.cpp
+  Generating Code...
+  mathsLib.vcxproj -> C:\Users\maxke\source\repos\mathsLibTests\Maths-Library\x64\Debug\mathsLib.lib
