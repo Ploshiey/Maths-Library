@@ -78,11 +78,15 @@ public:
 		{
 			Vector3 xAxis;
 			Vector3 yAxis;
-			Vector3 zAxis;
+			
+			union
+			{
+				Vector3 translation;
+				Vector3 zAxis;
+			};
 		};
 		Vector3 axis[3];
 		float data[3][3];
-		Vector3 translation;
 	};
 
 	Matrix3();
@@ -148,11 +152,17 @@ public:
 			Vector4 xAxis;
 			Vector4 yAxis;
 			Vector4 zAxis;
-			Vector4 wAxis;
+			
+			union
+			{
+				Vector4 translation;
+				Vector4 wAxis;
+			};
 		};
+
 		Vector4 axis[4];
 		float data[4][4];
-		Vector4 translation;
+		
 	};
 
 	// Constructors
