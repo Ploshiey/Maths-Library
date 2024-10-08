@@ -17,6 +17,10 @@ Matrix2::Matrix2(float _00, float _01, float _10, float _11)
 }
 Matrix2::Matrix2(const Matrix2& other)
 {
+	xAxis = other.xAxis;
+	yAxis = other.yAxis;
+	axis[0] = other.axis[0];
+	axis[1] = other.axis[1];
 	memcpy(this, &other, 4 * sizeof(float));
 }
 #pragma endregion
@@ -130,6 +134,19 @@ void Matrix2::scale(const Vector2& v)
 }
 #pragma endregion
 
+#pragma region OS Stream
+std::ostream& operator<<(std::ostream& os, const Matrix2& m)
+{
+	os << m.data[0][0] << ",";
+	os << m.data[1][0] << ",";
+	os << std::endl;
+	os << m.data[0][1] << ",";
+	os << m.data[1][1] << ",";
+	os << std::endl;
+
+	return os;
+}
+#pragma endregion
 #pragma endregion
 
 #pragma region Matrix3
@@ -152,6 +169,13 @@ Matrix3::Matrix3(float _00, float _01, float _02, float _10, float _11, float _1
 }
 Matrix3::Matrix3(const Matrix3& other)
 {
+	xAxis = other.xAxis;
+	yAxis = other.yAxis;
+	zAxis = other.zAxis;
+	axis[0] = other.axis[0];
+	axis[1] = other.axis[1];
+	axis[2] = other.axis[2];
+	translation = other.translation;
 	memcpy(this, &other, 9 * sizeof(float));
 }
 #pragma endregion
@@ -356,6 +380,26 @@ void Matrix3::scale(const Vector3& v)
 }
 #pragma endregion
 
+#pragma region OS Stream
+std::ostream& operator<<(std::ostream& os, const Matrix3& m)
+{
+	os << m.data[0][0] << ",";
+	os << m.data[1][0] << ",";
+	os << m.data[2][0] << ",";
+	os << std::endl;
+	os << m.data[0][1] << ",";
+	os << m.data[1][1] << ",";
+	os << m.data[2][1] << ",";
+	os << std::endl;
+	os << m.data[0][2] << ",";
+	os << m.data[1][2] << ",";
+	os << m.data[2][2] << ",";
+	os << std::endl;
+
+	return os;
+}
+#pragma endregion
+
 #pragma endregion
 
 #pragma region Matrix4
@@ -388,6 +432,15 @@ Matrix4::Matrix4(float _00, float _01, float _02, float _03
 }
 Matrix4::Matrix4(const Matrix4& other)
 {
+	xAxis = other.xAxis;
+	yAxis = other.yAxis;
+	zAxis = other.zAxis;
+	xAxis = other.wAxis;
+	axis[0] = other.axis[0];
+	axis[1] = other.axis[1];
+	axis[2] = other.axis[2];
+	axis[3] = other.axis[3];
+	translation = other.translation;
 	memcpy(this, &other, 16 * sizeof(float));
 }
 #pragma endregion
@@ -654,6 +707,32 @@ void Matrix4::scale(const Vector3& v)
 }
 #pragma endregion
 
+#pragma region OS Stream
+std::ostream& operator<<(std::ostream& os, const Matrix4& m)
+{
+	os << m.data[0][0] << ", ";
+	os << m.data[1][0] << ", ";
+	os << m.data[2][0] << ", ";
+	os << m.data[3][0] << ", ";
+	os << std::endl;
+	os << m.data[0][1] << ", ";
+	os << m.data[1][1] << ", ";
+	os << m.data[2][1] << ", ";
+	os << m.data[3][1] << ", ";
+	os << std::endl;
+	os << m.data[0][2] << ", ";
+	os << m.data[1][2] << ", ";
+	os << m.data[2][2] << ", ";
+	os << m.data[3][2] << ", ";
+	os << std::endl;
+	os << m.data[0][3] << ", ";
+	os << m.data[1][3] << ", ";
+	os << m.data[2][3] << ", ";
+	os << m.data[3][3] << ", ";
+	os << std::endl;
 
+	return os;
+}
+#pragma endregion
 #pragma endregion
 

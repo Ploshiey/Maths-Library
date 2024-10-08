@@ -1,2 +1,2 @@
 ﻿  testApp.cpp
-C:\Users\a240069\Documents\GitHub\Maths-Library\testApp\testApp.cpp(1,10): fatal  error C1083: Cannot open include file: 'vector.h': No such file or directory
+  testApp.vcxproj -> C:\Users\a240069\Documents\GitHub\Maths-Library\x64\Debug\testApp.exe
